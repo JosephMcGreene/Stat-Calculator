@@ -5,20 +5,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		Calculation leagueCalcs = new leagueOfLegends.Calculation();
-		Helper leagueHelpers = new leagueOfLegends.Helper();
-		
-		// leagueCalcs.calculateResistances(leagueHelpers.userInput("Enter your resistance value: "));
-		// leagueCalcs.calculateAbilityPower();
 
-		// System.out.println(
-		// 	"Your damage against this opponent is increased by about " + 
-		// 	leagueCalcs.calculateMagicPenetration(
-		// 		leagueHelpers.userInput("Enter your magic penetration stat: "),
-		// 		leagueHelpers.userInput("And what is your opponent's Magic Resist? ")
-		//	) + "%");
+		String statChoice = JOptionPane.showInputDialog("What statistic would you like to calculate? 1=Armor or Magic Resist, 2=Magic Penetration.");
 
-		String statChoice = JOptionPane.showInputDialog("What game statistic would you like to calculate? 1=MR, 2=Magic Penetration.");
-		JOptionPane.showMessageDialog(null, "Got it. " + statChoice + " it is.");
-		System.out.println(statChoice);
+		JOptionPane.showMessageDialog(null, "Got it.");
+
+		if (Integer.parseInt(statChoice) == 1) {
+			float userInput = Float.parseFloat( JOptionPane.showInputDialog("How much armor/magic resist do you have?") );
+			float percentReduced = leagueCalcs.calculateResistances(userInput);
+			JOptionPane.showMessageDialog(null, "Your damage is reduced by about " + percentReduced + "%");
+		}
 	}
 }
