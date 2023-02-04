@@ -4,16 +4,21 @@ import javax.swing.*;
 public class Main {
 
 	public static void main(String[] args) {
-		Calculation leagueCalcs = new leagueOfLegends.Calculation();
+		CalculationGroup leagueCalcs = new leagueOfLegends.CalculationGroup();
 
-		String statChoice = JOptionPane.showInputDialog("What statistic would you like to calculate? 1=Armor or Magic Resist, 2=Magic Penetration.");
+		int lethality = Integer.parseInt( JOptionPane.showInputDialog("Enter lethality:") );
+		int level = Integer.parseInt( JOptionPane.showInputDialog("Enter opponent's level:") );
 
-		JOptionPane.showMessageDialog(null, "Got it.");
+		System.out.println(leagueCalcs.calculateLethalityDamage(lethality, level));
 
-		if (Integer.parseInt(statChoice) == 1) {
-			float userInput = Float.parseFloat( JOptionPane.showInputDialog("How much armor/magic resist do you have?") );
-			float percentReduced = leagueCalcs.calculateResistances(userInput);
-			JOptionPane.showMessageDialog(null, "Your damage is reduced by about " + percentReduced + "%");
-		}
+		// String statChoice = JOptionPane.showInputDialog("What statistic would you like to calculate? 1=Armor or Magic Resist, 2=Magic Penetration.");
+
+		// JOptionPane.showMessageDialog(null, "Got it.");
+
+		// if (Integer.parseInt(statChoice) == 1) {
+		// 	float userInput = Float.parseFloat( JOptionPane.showInputDialog("How much armor/magic resist do you have?") );
+		// 	float percentReduced = leagueCalcs.calculateResistances(userInput);
+		// 	JOptionPane.showMessageDialog(null, "Your damage is reduced by about " + percentReduced + "%");
+		// }
 	}
 }
