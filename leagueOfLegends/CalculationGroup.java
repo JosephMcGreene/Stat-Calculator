@@ -22,7 +22,9 @@ public class CalculationGroup {
 		return Math.round(abilityDamage);
 	}
 
-	public double calculateLethalityDamage(int lethality, int opponentLevel) {
-		return lethality * (0.6 + 0.4 * opponentLevel % 18);
+	public double armorPenFromLethality(int lethalityValue, int opponentLevel) {
+		// ARMOR PEN FORUMLA: lethality * (0.6 + 0.4 * opponentLevel / 18);
+		double lethalityScaling = opponentLevel * 0.4 / 18 + 0.6;
+		return lethalityScaling * lethalityValue; 
 	}
 }
